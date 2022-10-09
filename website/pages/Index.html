@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SKTE</title>
+    <!-- google fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <!-- our stylesheet ( group ) -->
+    <link rel="stylesheet" href="../css/stylesheet.css">
+
+    <!-- this is bootsrap- https://getbootstrap.com/docs/5.0/getting-started/introduction/ -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <!-- Favicon (emma) -->
+    <link rel="fav icon" type="images/logo" href="../images/logo.ico" />
+</head>
+
+<body>
+    <!-- navbar-https://codepen.io/WebDevSimplified/pen/LqKQRK -->
+    <!-- Navbar (james) -->
+    <nav class="navbar">
+        <!-- image found here but editied after-https://www.google.com/url?sa=i&url=https%3A%2F%2F99designs.com%2Finspiration%2Flogos%2Fskateboard&psig=AOvVaw3azLPc4ZG5CCtHKepi3c1A&ust=1608334989506000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCODGm_CY1u0CFQAAAAAdAAAAABAD-->
+        <div class="logo"><img src="../images/logo.png" alt="logo"></div>
+        <a href="#" class="toggle-button">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </a>
+        <div class="navbar-links">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="game.html">Game</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- video background with overlay text-https://www.youtube.com/watch?v=aYBGV8ssve4&t=1034s -->
+    <!-- video-background (james) -->
+    <div class="video-background">
+        <div class="video-wrap">
+            <div id="video">
+                <video id="bgvid" autoplay muted loop>
+                   <!-- video reference-https://www.youtube.com/watch?v=Io0Ymy0mZGE -->
+                  <source src="../video/background.mp4" type="video/mp4">
+               </video>
+            </div>
+        </div>
+    </div>
+    <!--  (james) -->
+    <div class="overlay text-center">
+        <h1>WE ARE SKTE </h1>
+        <a class="btn btn-outline-light btn-lg" href="#about">About us</a>
+    </div>
+    <!-- (james) -->
+    <div id="about" class="row justify-content-center">
+        <div class="col-md-8 text-center">
+            <h3>About us</h3>
+            <p class="lead">Welcome to SKTE your number one source for all things Skateboarding. We're dedicated to giving you the very best of experience, with a focus on dependability, customer service and uniqueness<br><br> Founded in 2020 by James Graham,Emma Closca
+                and Gabriel Tkacov.<br><br> SKTE has come a long way from its beginnings. When we first started out, our passion for skateboarding is what drove us to create this unique and creative brand<br><br> We hope you enjoy our brand as much as
+                we enjoy creating it. If you have any questions or comments, please don't hesitate to contact us.<br><br> Sincerely,
+                <br> SKTE Team
+            </p>
+        </div>
+    </div>
+    <!-- navbar-https://codepen.io/WebDevSimplified/pen/LqKQRK -->
+    <!-- Navbar button (james) -->
+    <script>
+        const toggleButton = document.getElementsByClassName('toggle-button')[0]
+        const navbarLinks = document.getElementsByClassName('navbar-links')[0]
+
+        toggleButton.addEventListener('click', () => {
+            navbarLinks.classList.toggle('active')
+        })
+    </script>
+    <!-- spotify player ( Emma ) -->
+    <iframe src="https://open.spotify.com/embed/playlist/1EUbTOaLg1GfUihk55bSqs" width="500" height="300" allow="encrypted-media"></iframe>
+
+    <!-- footer (james) -->
+    <footer>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="line">
+                    <hr/>
+                </div>
+                <div class="col-12">Sitemap</div>
+                <div class="col-12"><a class="ls" href="index.html">Home</a></div>
+                <div class="col-12"><a class="ls" href="contact.html">Contact</a></div>
+                <div class="col-12"><a class="ls" href="gallery.html">Gallery</a></div>
+                <div class="col-12"><a class="ls" href="game.html">Game</a></div>
+                <div class="col-12"><a class="ls" href="blog.html">Blog</a></div>
+                <div class="col-12">© 2020 Copyright</div>
+                <div class="line">
+                    <hr/>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

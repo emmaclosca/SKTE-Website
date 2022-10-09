@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKTE</title>
+    <!-- favicon ( Emma ) -->
+    <link rel="fav icon" type="images/logo" href="../images/logo.ico" />
+    <!-- image layout + pop in and out js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+    <!-- fonts = https://fonts.google.com/ -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <!-- bootstrap = https://getbootstrap.com/docs/5.0/getting-started/introduction/ -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <!-- our stylesheet ( group ) -->
+    <link rel="stylesheet" href="../css/stylesheet.css">
+
+</head>
+
+<body>
+    <!-- nav bar ( James ) = https://codepen.io/WebDevSimplified/pen/LqKQRK -->
+    <nav class="navbar">
+        <div class="logo"><img src="../images/logo.png" alt="logo"></div>
+        <a href="#" class="toggle-button">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </a>
+        <div class="navbar-links">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="game.html">Game</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- gallery ( Emma ) = https://www.youtube.com/watch?v=mkqRpPdnggw&t=1s -->
+    <div class="container">
+        <h1 class="title1">SKTE Gallery</h1>
+        <!-- gallery website ( Emma ) = https://unsplash.com/s/photos/skate -->
+        <p id="ref"><small>Unsplash.com</small></p>
+        <div class="line">
+            <hr/>
+        </div>
+
+        <div class="gallery-section">
+            <div class="inner-width">
+                <div class="gallery">
+
+                    <a href="../images/skate.jpg" class="image">
+                        <img src="../images/skate.jpg" alt="">
+                    </a>
+
+                    <a href="../images/skate1.jpg" class="image">
+                        <img src="../images/skate1.jpg" alt="">
+                    </a>
+
+                    <a href="../images/skate4.jpg" class="image">
+                        <img src="../images/skate4.jpg" alt="">
+                    </a>
+
+                    <a href="../images/skate3.jpg" class="image">
+                        <img src="../images/skate3.jpg" alt="">
+                        <br>
+                    </a>
+
+                    <a href="../images/skate5.jpg" class="image">
+                        <img src="../images/skate5.jpg" alt="">
+                    </a>
+
+                    <a href="../images/skate2.jpg" class="image">
+                        <img src="../images/skate2.jpg" alt="">
+                    </a>
+
+                    <a href="../images/skate6.jpg" class="image">
+                        <img src="../images/skate6.jpg" alt="">
+                    </a>
+
+                    <a href="../images/skate7.jpg" class="image">
+                        <img src="../images/skate7.jpg" alt="">
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // pop up and out images ( Emma ) //
+        $(".gallery").magnificPopup({
+            delegate: 'a',
+            type: 'image',
+            gallery: {
+                enabled: true
+            }
+        });
+        // nav button ( James ) //	
+        const toggleButton = document.getElementsByClassName('toggle-button')[0]
+        const navbarLinks = document.getElementsByClassName('navbar-links')[0]
+
+        toggleButton.addEventListener('click', () => {
+            navbarLinks.classList.toggle('active')
+        })
+    </script>
+    <!-- spotify playlist ( Emma )-->
+    <iframe src="https://open.spotify.com/embed/playlist/1EUbTOaLg1GfUihk55bSqs" width="500" height="300" allow="encrypted-media"></iframe>
+
+    <!-- footer ( James ) -->
+    <footer>
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="line">
+                    <hr/>
+                </div>
+                <div class="col-12">Sitemap</div>
+                <div class="col-12"><a class="ls" href="index.html">Home</a></div>
+                <div class="col-12"><a class="ls" href="contact.html">Contact</a></div>
+                <div class="col-12"><a class="ls" href="gallery.html">Gallery</a></div>
+                <div class="col-12"><a class="ls" href="game.html">Game</a></div>
+                <div class="col-12"><a class="ls" href="blog.html">Blog</a></div>
+                <div class="col-12">© 2020 Copyright</div>
+                <div class="line">
+                    <hr/>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>SKTE</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <!-- our stylesheet ( group ) -->
+    <link rel="stylesheet" href="../css/stylesheet.css">
+
+    <!-- this is bootsrap- https://getbootstrap.com/docs/5.0/getting-started/introduction/ -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <!-- favicon ( Emma ) -->
+    <link rel="fav icon" type="image/logo" href="../images/logo.ico" />
+</head>
+
+<body>
+    <!-- navbar-https://codepen.io/WebDevSimplified/pen/LqKQRK -->
+    <nav class="navbar">
+        <div class="logo"><img src="../images/logo.png" alt="logo"></div>
+        <a href="#" class="toggle-button">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </a>
+        <div class="navbar-links">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="game.html">Game</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container-fluid" id="topdown">
+        <h1 class="head1"> SKTE Game</h1>
+        <h4 class="head2">Press Space To Jump!!</h4>
+        <div id="canvas">
+            <h2 id="alert">How far can you go</h2>
+            <div class="grid">
+                <div class="skater"></div>
+            </div>
+        </div>
+        <h1 id="score">0</h1>
+        <h3 class="head2">Refresh the page to play again</h3>
+    </div>
+
+
+    <iframe src="https://open.spotify.com/embed/playlist/1EUbTOaLg1GfUihk55bSqs" width="500" height="300" allow="encrypted-media"></iframe>
+
+
+    <script>
+        /* disabled scrolling with spacebar-https://stackoverflow.com/questions/22559830/html-prevent-space-bar-from-scrolling-page*/
+        window.onkeydown = function(e) {
+            return !(e.keyCode == 32 && e.target == document.body);
+        };
+        /* used this as a guide- https://github.com/kubowania/chrome-trex-game*/
+        /* Game created by ( James )*/
+        const audioObj = new Audio("../music/music.mp3");
+        audioObj.play();
+        audioObj.volume = 0.2;
+        document.addEventListener('DOMContentLoaded', () => {
+            const skater = document.querySelector('.skater')
+            const grid = document.querySelector('.grid')
+            const body = document.querySelector('body')
+            const alert = document.getElementById('alert')
+            const score = document.getElementById("score");
+
+
+            const jumpSnd = new Audio("../music/jump.mp3");
+
+
+
+            let isJumping = false
+            let gravity = 0.9
+            let isGameOver = false
+
+            /* uses key code 32(spacebar)*/
+            function control(e) {
+                if (e.keyCode === 32) {
+                    if (!isJumping) {
+                        isJumping = true
+                        jump()
+
+                    }
+                }
+            }
+
+            document.addEventListener('keyup', control)
+                /*on jump play a sound and add a plus 1 to the score*/
+            let position = 0
+
+            function jump() {
+                score.innerText++;
+                jumpSnd.play();
+                jumpSnd.volume = 0.1;
+                let count = 0
+
+                let timerId = setInterval(function() {
+                    /* movement down*/
+                    if (count === 15) {
+                        clearInterval(timerId)
+                        let downTimerId = setInterval(function() {
+                            if (count === 0) {
+                                clearInterval(downTimerId)
+                                isJumping = false
+                            }
+                            position -= 5
+                            count--
+                            position = position * gravity
+                            skater.style.bottom = position + 'px'
+                        }, 20)
+
+                    }
+                    /*movement up*/
+                    position += 30
+                    count++
+                    position = position * gravity
+                    skater.style.bottom = position + 'px'
+                }, 20)
+            }
+            /*generates the obstacle at 2000px and randomly every 3000ms*/
+            function generateObstacles() {
+                let randomTime = Math.random() * 3000
+                let obstaclePosition = 2000
+                const obstacle = document.createElement('div')
+                if (!isGameOver) obstacle.classList.add('obstacle')
+                grid.appendChild(obstacle)
+                obstacle.style.left = obstaclePosition + 'px'
+
+                /*game over condition, remove audio,stop blocks generating and score returns to 0*/
+                let timerId = setInterval(function() {
+                    if (obstaclePosition > 0 && obstaclePosition < 60 && position < 60) {
+                        score.innerText = 0;
+                        clearInterval(timerId)
+                        audioObj.pause();
+                        jumpSnd.pause();
+                        alert.innerHTML = 'Game Over'
+                        if (obstaclePosition < 0) {
+                            body.remove(obstaclePosition)
+                        }
+                        isGameOver = true
+
+
+
+                    }
+                    obstaclePosition -= 10
+                    obstacle.style.left = obstaclePosition + 'px'
+                }, 20)
+                if (!isGameOver) setTimeout(generateObstacles, randomTime)
+            }
+
+            generateObstacles()
+        })
+    </script>
+
+    <script>
+        /*navbar button*/
+        /* navbar-https://codepen.io/WebDevSimplified/pen/LqKQRK */
+        const toggleButton = document.getElementsByClassName('toggle-button')[0]
+        const navbarLinks = document.getElementsByClassName('navbar-links')[0]
+
+        toggleButton.addEventListener('click', () => {
+            navbarLinks.classList.toggle('active')
+        })
+    </script>
+
+
+
+
+
+    <!-- footer -->
+    <footer>
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="line">
+                    <hr/>
+                </div>
+
+                <div class="col-12">Sitemap</div>
+                <div class="col-12"><a class="ls" href="index.html">Home</a></div>
+                <div class="col-12"><a class="ls" href="contact.html">Contact</a></div>
+                <div class="col-12"><a class="ls" href="gallery.html">Gallery</a></div>
+                <div class="col-12"><a class="ls" href="game.html">Game</a></div>
+                <div class="col-12"><a class="ls" href="blog.html">Blog</a></div>
+                <div class="col-12"> © 2020 Copyright</div>
+                <div class="line">
+                    <hr/>
+                </div>
+
+
+            </div>
+        </div>
+
+    </footer>
+</body>
+
+</html>

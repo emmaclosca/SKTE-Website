@@ -1,0 +1,665 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #1c191a !important;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+
+/*nav bar ( James ) */
+
+
+/*navbar-https://codepen.io/WebDevSimplified/pen/LqKQRK */
+
+.navbar img {
+    width: 50px;
+    height: 80px;
+}
+
+.navbar {
+    font-family: 'Cormorant Garamond', serif;
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1c191a;
+    color: #f14902;
+    font-size: 30px;
+}
+
+.logo {
+    padding: 10px 10px 10px 10px;
+}
+
+.navbar-links ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-links li {
+    list-style: none;
+}
+
+.navbar-links li a {
+    display: block;
+    text-decoration: none;
+    color: #ffffff;
+    padding: 1rem;
+}
+
+.navbar-links li:hover {
+    background-color: #ff7d5b;
+}
+
+.toggle-button {
+    position: absolute;
+    top: .75rem;
+    right: 1rem;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+}
+
+.toggle-button .bar {
+    height: 3px;
+    width: 100%;
+    background-color: #ff7d5b;
+    border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .toggle-button {
+        display: flex;
+    }
+    .navbar-links {
+        display: none;
+        width: 100%;
+    }
+    .navbar-links ul {
+        width: 100%;
+        flex-direction: column;
+    }
+    .navbar-links ul li {
+        text-align: center;
+    }
+    .navbar-links ul li a {
+        padding: .05rem 1rem;
+    }
+    .navbar-links.active {
+        display: flex;
+    }
+}
+
+
+/*spotify embeded playlist */
+
+
+/* made by ( Emma )*/
+
+iframe {
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    border-width: 0px;
+}
+
+
+/*footer */
+
+
+/* Made by ( James )*/
+
+.container-fluid {
+    padding: 15px;
+    text-align: center;
+    color: #ffffff;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 15px;
+}
+
+.ls {
+    color: #ff7d5b;
+}
+
+hr {
+    border: 0;
+    opacity: 0.5;
+    display: block;
+    width: 100%;
+    background-color: #ffffff;
+    height: 1px;
+}
+
+.line {
+    width: 100%;
+    height: 40px;
+}
+
+
+/* custom scroll bar = https://www.w3schools.com/howto/howto_css_custom_scrollbar.asp */
+
+
+/* Made by ( Emma )*/
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1c191a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ff7d5b;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #f14902;
+}
+
+
+/*James's content */
+
+
+/*about us content */
+
+.col-md-8 {
+    margin: 2rem auto 8rem;
+    padding-top: 2rem;
+}
+
+.col-md-8 h3 {
+    font-size: 2.4rem;
+    font-family: 'Roboto Mono', monospace;
+    color: white;
+}
+
+.col-md-8 p {
+    font-size: 17px;
+    font-family: 'Roboto Mono', monospace;
+    color: white;
+}
+
+
+/*video-background - https://www.youtube.com/watch?v=aYBGV8ssve4&t=1034s */
+
+.video-background {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+
+/*text overlay on video - https://www.youtube.com/watch?v=aYBGV8ssve4&t=1034s*/
+
+.overlay {
+    position: absolute;
+    top: 38%;
+    width: 100%;
+    color: white;
+}
+
+.overlay h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: .2rem;
+    text-shadow: .1rem .1rem .8rem black;
+    padding-bottom: 1.6rem;
+}
+
+.btn-lg {
+    border-width: medium;
+    border-radius: 0;
+    font-size: 1.1rem;
+}
+
+@media(max-width:768px) {
+    .overlay {
+        position: absolute;
+        top: 38%;
+        width: 100%;
+        color: white;
+    }
+    .overlay h1 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 1.4rem;
+        letter-spacing: .15rem;
+        padding-bottom: 1.6rem;
+    }
+    .btn-lg {
+        font-size: 1.1rem;
+    }
+}
+
+
+/* Bootstrap Mobile */
+
+.row,
+.container-fluid {
+    margin-left: 0px!important;
+    margin-right: 0px!important;
+}
+
+
+/* Video Background iOS/Mobile */
+
+.video-wrap {
+    clip: rect(0, auto, auto, 0);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#video {
+    position: fixed;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    will-change: transform;
+    z-index: -1000;
+}
+
+video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    transform: translateX(-50%) translateY(-50%);
+    background: url('') no-repeat;
+    background-size: cover;
+    transition: 1s opacity;
+}
+
+
+/*Gabriel's content */
+
+
+/*Resize the location image*/
+
+.img2 {
+    width: 100px;
+    height: 100px;
+}
+
+
+/* Text styling */
+
+.content {
+    padding: 20px;
+    font-size: 15px;
+    color: white;
+    font-family: 'Roboto Mono', monospace;
+}
+
+
+/*Brings text down*/
+
+.down {
+    top: 25px;
+    position: relative;
+}
+
+
+/*Brings text up*/
+
+.up {
+    top: -20px;
+    position: relative;
+}
+
+.title1 {
+    text-align: center;
+    text-transform: uppercase;
+    color: #f14902;
+    position: relative;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 40px;
+    padding: 15px;
+}
+
+.title2 {
+    color: #f14902;
+    padding-top: 30px;
+    font-size: 30px;
+    font-weight: 700;
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    margin: 0px;
+}
+
+
+/* Styling for the container */
+
+#align {
+    text-align: center;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+
+/* This is where all the form content is such as style inputs,
+select elements and textareas */
+
+input[type=text],
+select,
+textarea {
+    width: 75%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical;
+}
+
+
+/* Style the submit button */
+
+input[type=submit] {
+    background-color: #1c191a;
+    color: #FFFAFA;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hover:hover {
+    background: #ff7d5b;
+    outline: none;
+    box-shadow: 0 4px black;
+}
+
+
+/* Styling of the column*/
+
+.col-xl-12 {
+    padding: 5px;
+    opacity: .9;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+}
+
+
+/* Clear floats after the columns */
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+    color: #ff7d5b !important;
+}
+
+
+/*Classes for the form*/
+
+#name {
+    border: none;
+    color: grey;
+    background-color: rgba(0, 0, 0, .4);
+}
+
+#email {
+    border: none;
+    color: grey;
+    background-color: rgba(0, 0, 0, .4);
+}
+
+.choice {
+    border: none;
+    color: grey;
+    background-color: rgba(0, 0, 0, .4);
+}
+
+.comment {
+    border: none;
+    color: grey;
+    background-color: rgba(0, 0, 0, .4);
+}
+
+
+/* Changes the background color to white*/
+
+option {
+    background-color: #ffffff
+}
+
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+
+@media screen and (max-width: 600px) {
+    .col-25,
+    .col-75,
+    input[type=submit] {
+        width: 100%;
+        margin-top: 0;
+    }
+}
+
+
+/*Emma's content*/
+
+
+/* image gallery ( Emma ) = https://www.youtube.com/watch?v=mkqRpPdnggw&list=LL&index=3 */
+
+.gallery-section {
+    background: #1c191a;
+    padding-top: 150px;
+}
+
+.inner-width {
+    max-width: 1200px;
+    margin: auto;
+}
+
+#ref {
+    text-align: center;
+    color: #f14902;
+    position: relative;
+    font-family: 'Cormorant Garamond', serif;
+    opacity: 0.7;
+}
+
+
+/* images layout + animation */
+
+.gallery-section .gallery {
+    display: flex;
+    flex-wrap: wrap-reverse;
+    justify-content: center;
+    position: relative;
+    top: -150px;
+}
+
+.gallery-section .image {
+    flex: 25%;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.gallery-section .image img {
+    width: 100%;
+    height: 100%;
+    transition: 0.4s;
+}
+
+.gallery-section .image:hover img {
+    transform: scale(1.4) rotate(15deg);
+}
+
+@media screen and (max-width:960px) {
+    .gallery-section .image {
+        flex: 33.33%;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .gallery-section .image {
+        flex: 50%;
+    }
+}
+
+@media screen and (max-width:480px) {
+    .gallery-section .image {
+        flex: 100%;
+    }
+}
+
+
+/*Emma & Gabriel's blog work*/
+
+
+/* blog layout ( Emma) */
+
+.blog {
+    box-shadow: 0px 0px 10px 1px rgba(46, 49, 49, 1);
+    padding: 20px;
+    margin-top: 20px;
+    background-color: #b3b3b3;
+}
+
+.blog .image {
+    width: 100%;
+    height: 250px;
+}
+
+.image:hover {
+    transform: scale(1.05);
+}
+
+.blog-meta {
+    font-size: 14px;
+    margin-bottom: px;
+}
+
+.blog span {
+    float: right;
+    font-size: 12px;
+    color: #f14902;
+}
+
+.blog-text {
+    font-size: 14px;
+    text-align: justify;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.blog .article {
+    margin-top: 10px;
+    font-size: 16px;
+    color: blue;
+    text-align: center;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.blog .article a {
+    text-decoration: none;
+    color: #f14902;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 25px;
+}
+
+.col-md-4 {
+    display: flex;
+}
+
+#blog {
+    padding: 20px;
+}
+
+
+/*James's game work*/
+
+
+/*used this to guide me -https://github.com/kubowania/chrome-trex-game */
+
+
+/* image used from here-https://www.google.com/url?sa=i&url=https%3A%2F%2Faminoapps.com%2Fpage%2Fskateboard%2F9100844%2Feric-koston&psig=AOvVaw0IgcP39v6kqyqdTgsBB22k&ust=1608335341877000&source=images&cd=vfe&ved=2ahUKEwjduZCXmtbtAhXvVxUIHfhSD4gQjRx6BAgAEAc*/
+
+.skater {
+    position: absolute;
+    width: 100px;
+    height: 80px;
+    background-image: url("../images/skateboard.png");
+    bottom: 0px;
+}
+
+
+/*https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pinterest.com%2Fpin%2F501799583451447819%2F&psig=AOvVaw33nxfyVNxgyq3RgdYvnG0D&ust=1608335232777000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOCRoeOZ1u0CFQAAAAAdAAAAABAD*/
+
+.obstacle {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-image: url("../images/rock.png");
+    bottom: 0px;
+}
+
+
+/* canavas background-https://www.google.com/url?sa=i&url=https%3A%2F%2Fgifs.alphacoders.com%2Fby_sub_category%2F170023%3Fpage%3D31&psig=AOvVaw39Z1pucTIF5WKkKRBokJfx&ust=1608335105808000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCPDGkKaZ1u0CFQAAAAAdAAAAABAD*/
+
+#canvas {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    background-image: url('../images/background.png');
+    width: 100%;
+    height: 500px;
+}
+
+#score {
+    color: white;
+    text-align: center;
+}
+
+#topdown {
+    margin-top: 20px
+}
+
+.head1 {
+    padding-bottom: 80px;
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    color: #f14902;
+    font-size: 60px;
+}
+
+.head2 {
+    font-size: 20px;
+    text-align: center;
+    color: #ffffff;
+    font-family: 'Roboto Mono', monospace;
+}
+
+iframe {
+    display: block;
+    margin: 0 auto;
+    position: relative;
+}
